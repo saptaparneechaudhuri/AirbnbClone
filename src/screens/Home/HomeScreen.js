@@ -7,13 +7,20 @@ import {
   ImageBackground,
   Pressable,
   Dimensions,
+  StatusBar,
 } from 'react-native';
 
-const HomeScreen = props => {
+const HomeScreen = ({navigation}) => {
   return (
     <View>
+      <StatusBar translucent backgroundColor="transparent" />
+
       {/* Search Bar */}
-      <Pressable style={styles.searchButton} onPress={() => {}}>
+      <Pressable
+        style={styles.searchButton}
+        onPress={() => {
+          navigation.navigate('DestinationSearch');
+        }}>
         <Fontisto name="search" size={25} color="#f15454" />
         <Text style={styles.searchButtonText}>Where are you going?</Text>
       </Pressable>

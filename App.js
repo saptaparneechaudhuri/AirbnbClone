@@ -18,13 +18,12 @@ import {
   View,
 } from 'react-native';
 
-import HomeScreen from './src/screens/Home/HomeScreen';
+import Router from './src/navigation/Router';
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <StatusBar translucent backgroundColor="transparent" />
-      <HomeScreen />
+      <Router />
     </View>
   );
 };
