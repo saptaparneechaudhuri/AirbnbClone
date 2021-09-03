@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, Pressable, StyleSheet} from 'react-native';
 
-const Guests = () => {
+const Guests = ({navigation}) => {
   const [adults, setAdults] = useState(0);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
@@ -100,7 +100,9 @@ const Guests = () => {
       </View>
       <View>
         <Pressable
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate('SearchResults');
+          }}
           style={{
             bottom: 20,
             backgroundColor: '#f15454',

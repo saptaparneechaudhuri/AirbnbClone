@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import search from '../assets/data/search';
+import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 
 const DestinationSearch = ({navigation}) => {
   const [inputText, setInputText] = useState('');
@@ -28,9 +29,25 @@ const DestinationSearch = ({navigation}) => {
   return (
     <View style={styles.container}>
       {/* Input Component */}
+      <View style={{height: 500}}>
+        <GooglePlacesAutocomplete
+          placeholder="Where are you going?"
+          onPress={(data, details = null) => {
+            // 'details' is provided when fetchDetails = true
+            console.log(data, details);
+          }}
+          // styles={{textInput: styles.textInput}}
+          query={{
+            key: 'AIzaSyB1BKU9BU5X8oPmHIL5nivR0TVmqjGf2kA',
+            language: 'en',
+          }}
+          // renderRow={renderItem}
+        />
+      </View>
+
       <TextInput
         style={styles.textInput}
-        placeholder="Where are you going?"
+        placeholder="Text Input?"
         onChangeText={text => setInputText(text)}
       />
 
@@ -42,11 +59,14 @@ const DestinationSearch = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 20,
+    padding: 20,
+    height: '100%',
+    backgroundColor: 'white',
   },
   textInput: {
     fontSize: 20,
     marginBottom: 20,
+    marginTop: 50,
   },
   row: {
     flexDirection: 'row',
