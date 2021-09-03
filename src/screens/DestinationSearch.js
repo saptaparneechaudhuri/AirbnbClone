@@ -14,7 +14,7 @@ import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete'
 
 const DestinationSearch = ({navigation}) => {
   const [inputText, setInputText] = useState('');
-  const renderItem = ({item}) => {
+  const renderItem = item => {
     return (
       <Pressable
         style={styles.row}
@@ -29,30 +29,29 @@ const DestinationSearch = ({navigation}) => {
   return (
     <View style={styles.container}>
       {/* Input Component */}
-      <View style={{height: 500}}>
-        <GooglePlacesAutocomplete
-          placeholder="Where are you going?"
-          onPress={(data, details = null) => {
-            // 'details' is provided when fetchDetails = true
-            console.log(data, details);
-          }}
-          // styles={{textInput: styles.textInput}}
-          query={{
-            key: 'AIzaSyB1BKU9BU5X8oPmHIL5nivR0TVmqjGf2kA',
-            language: 'en',
-          }}
-          // renderRow={renderItem}
-        />
-      </View>
 
-      <TextInput
+      <GooglePlacesAutocomplete
+        placeholder="Where are you going?"
+        onPress={(data, details = null) => {
+          // 'details' is provided when fetchDetails = true
+          console.log(data, details);
+        }}
+        styles={{textInput: styles.textInput}}
+        query={{
+          key: 'AIzaSyCXvw94vDv0imWnt2T06eCVnuiCVU8SjaU',
+          language: 'en',
+        }}
+        renderRow={item => renderItem(item)}
+      />
+
+      {/* <TextInput
         style={styles.textInput}
         placeholder="Text Input?"
         onChangeText={text => setInputText(text)}
-      />
+      /> */}
 
       {/* List of destination */}
-      <FlatList data={search} renderItem={renderItem} />
+      {/* <FlatList data={search} renderItem={renderItem} /> */}
     </View>
   );
 };
