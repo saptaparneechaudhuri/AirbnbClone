@@ -38,7 +38,7 @@ const DestinationSearch = ({navigation}) => {
         }}
         styles={{textInput: styles.textInput}}
         query={{
-          key: 'AIzaSyCXvw94vDv0imWnt2T06eCVnuiCVU8SjaU',
+          key: 'AIzaSyAXt17gKeIivu5U7RxOvAIzaVI7DxF841w',
           language: 'en',
         }}
         renderRow={item => renderItem(item)}
